@@ -7,11 +7,18 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nipun-dezoysa/react-confirm-prompt"
+  },
   "keywords": [
     "react",
     "confirm",
     "popup",
-    "alert"
+    "alert",
+    "React confirm box",
+    "React confirm dialog",
+    "React confirm popup"
   ],
   "author": "nipun_dezoysa",
   "license": "MIT",
