@@ -1,0 +1,65 @@
+.backGround {
+  width: 100%;
+  height: 100%;
+}
+
+.box {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 350px;
+  padding: 30px;
+  background-color: white;
+  position: absolute;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+}
+
+.title {
+  font-size: 20px;
+  color: black;
+  font-weight: 500;
+}
+
+.description {
+  font-size: 16px;
+  color: black;
+  text-align: center;
+}
+
+.btn {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.15s linear;
+}
+
+@media only screen and (max-width: 600px) {
+  .box {
+    width: 70%;
+  }
+}

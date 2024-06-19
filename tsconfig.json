@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "jsx": "react",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "strict": true,
+    "noImplicitAny": true
+  },
+  "exclude": ["node_modules"],
+  "hooks": [
+    "copy-files" 
+  ],
+  "include": [
+    "src/",
+    "src/**/*.css"
+  ]
+}
