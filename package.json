@@ -1,7 +1,7 @@
 {
   "name": "react-confirm-prompt",
   "version": "1.0.0",
-  "description": "responsive, customizable, and easy-to-use React component for creating confirm dialogs.\\",
+  "description": "responsive, customizable, and easy-to-use React component for creating confirm dialogs.",
   "main": "dist/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
