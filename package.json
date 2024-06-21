@@ -4,7 +4,6 @@
   "description": "responsive, customizable, and easy-to-use React component for creating confirm dialogs.",
   "main": "dist/",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
   },
   "repository": {

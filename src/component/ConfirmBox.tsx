@@ -122,56 +122,60 @@ function ConfirmBox(props: {
             : "drop-shadow(0 25px 25px rgb(0 0 0 / 0.15))",
         }}
       >
-        <div
-          className="icon"
-          style={{
-            backgroundColor: options.iconColor ? options.iconColor : iconColor,
-          }}
-        >
-          {icon}
-        </div>
-        <div className="title">{title}</div>
-        <div className="description">
-          {options.description ? options.description : ""}
-        </div>
-        <button
-          onClick={() => confirm(true)}
-          className="btn action"
-          style={{
-            backgroundColor: options.confirmColor
-              ? options.confirmColor
-              : iconColor,
-            color: options.confirmTextColor
-              ? options.confirmTextColor
-              : "white",
-          }}
-          onMouseOver={handleMouseOver}
-          onMouseOut={handleConfirmOut}
-          ref={confirmRef}
-          onKeyDown={handleKey}
-        >
-          {options.confirmLabel ? options.confirmLabel : "Confirm"}
-        </button>
-        {!options.hideCancel && (
-          <button
-            onClick={() => confirm(false)}
-            className="btn cancel"
+        <div className="boxContainer">
+          <div
+            className="icon"
             style={{
-              backgroundColor: options.cancelColor
-                ? options.cancelColor
-                : "rgb(229 231 235)",
-              color: options.cancelTextColor
-                ? options.cancelTextColor
-                : "black",
+              backgroundColor: options.iconColor
+                ? options.iconColor
+                : iconColor,
+            }}
+          >
+            {icon}
+          </div>
+          <div className="title">{title}</div>
+          <div className="description">
+            {options.description ? options.description : ""}
+          </div>
+          <button
+            onClick={() => confirm(true)}
+            className="btn action"
+            style={{
+              backgroundColor: options.confirmColor
+                ? options.confirmColor
+                : iconColor,
+              color: options.confirmTextColor
+                ? options.confirmTextColor
+                : "white",
             }}
             onMouseOver={handleMouseOver}
-            onMouseOut={handleCancelOut}
-            ref={cancelRef}
+            onMouseOut={handleConfirmOut}
+            ref={confirmRef}
             onKeyDown={handleKey}
           >
-            {options.cancelLabel ? options.cancelLabel : "Cancel"}
+            {options.confirmLabel ? options.confirmLabel : "Confirm"}
           </button>
-        )}
+          {!options.hideCancel && (
+            <button
+              onClick={() => confirm(false)}
+              className="btn cancel"
+              style={{
+                backgroundColor: options.cancelColor
+                  ? options.cancelColor
+                  : "rgb(229 231 235)",
+                color: options.cancelTextColor
+                  ? options.cancelTextColor
+                  : "black",
+              }}
+              onMouseOver={handleMouseOver}
+              onMouseOut={handleCancelOut}
+              ref={cancelRef}
+              onKeyDown={handleKey}
+            >
+              {options.cancelLabel ? options.cancelLabel : "Cancel"}
+            </button>
+          )}
+        </div>
       </div>
     </>
   );
