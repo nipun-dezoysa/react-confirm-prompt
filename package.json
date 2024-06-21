@@ -1,6 +1,6 @@
 {
   "name": "react-confirm-prompt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "responsive, customizable, and easy-to-use React component for creating confirm dialogs.",
   "main": "dist/",
   "scripts": {
