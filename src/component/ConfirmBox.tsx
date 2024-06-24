@@ -93,6 +93,22 @@ function ConfirmBox(props: {
     else if(e.keyCode === 40) cancelRef.current?.focus();
   }
 
+  const slideInOut = {
+    hidden: { scale: 0 },
+    visible: { scale: 1 },
+    exit: { scale: 0 },
+  };
+
+  const [clicked, setClicked] = useState(true);
+
+  function c(e:boolean){
+    setClicked(false);
+    setTimeout(() => {
+      confirm(e);
+    }, 100);
+    
+  }
+
   return (
     <>
       <div
@@ -108,14 +124,10 @@ function ConfirmBox(props: {
       />
       <AnimatePresence>
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.5 } as any}
-          transition={{
-            duration: 0.8,
-            delay: 0,
-            ease: [0, 0.71, 0.2, 1.01],
-          }}
+          variants={slideInOut}
+          initial="hidden"
+          animate={clicked ? "visible" : "hidden"}
+          exit="exit"
           className="box"
           style={{
             filter: options.hideShadow
@@ -139,7 +151,7 @@ function ConfirmBox(props: {
               {options.description ? options.description : ""}
             </div>
             <button
-              onClick={() => confirm(true)}
+              onClick={() => c(true)}
               className="btn action"
               style={{
                 backgroundColor: options.confirmColor
@@ -158,7 +170,7 @@ function ConfirmBox(props: {
             </button>
             {!options.hideCancel && (
               <button
-                onClick={() => confirm(false)}
+                onClick={() => c(false)}
                 className="btn cancel"
                 style={{
                   backgroundColor: options.cancelColor

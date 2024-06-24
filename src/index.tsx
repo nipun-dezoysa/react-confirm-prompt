@@ -24,6 +24,7 @@ export function showConfirm(title: string, options: options = {}) {
         <ConfirmBox
           confirm={(answer: boolean) => {
             container.unmount();
+            root.removeChild(div);
             resolve(answer);
           }}
           title={title}
