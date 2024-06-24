@@ -3,6 +3,7 @@ import "./ConfirmBox.css";
 import { TiInfoOutline, TiWarningOutline } from "react-icons/ti";
 import { GrStatusGood, GrCircleQuestion } from "react-icons/gr";
 import { options } from "./varTypes";
+import { motion,AnimatePresence } from "framer-motion";
 
 function ConfirmBox(props: {
   resolve: (value: boolean) => void;
@@ -114,69 +115,79 @@ function ConfirmBox(props: {
             : "rgba(0, 0, 0, 0.5)",
         }}
       />
-      <div
-        className="box"
-        style={{
-          filter: options.hideShadow
-            ? "none"
-            : "drop-shadow(0 25px 25px rgb(0 0 0 / 0.15))",
-        }}
-      >
-        <div className="boxContainer">
-          <div
-            className="icon"
-            style={{
-              backgroundColor: options.iconColor
-                ? options.iconColor
-                : iconColor,
-            }}
-          >
-            {icon}
-          </div>
-          <div className="title">{title}</div>
-          <div className="description">
-            {options.description ? options.description : ""}
-          </div>
-          <button
-            onClick={() => confirm(true)}
-            className="btn action"
-            style={{
-              backgroundColor: options.confirmColor
-                ? options.confirmColor
-                : iconColor,
-              color: options.confirmTextColor
-                ? options.confirmTextColor
-                : "white",
-            }}
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleConfirmOut}
-            ref={confirmRef}
-            onKeyDown={handleKey}
-          >
-            {options.confirmLabel ? options.confirmLabel : "Confirm"}
-          </button>
-          {!options.hideCancel && (
-            <button
-              onClick={() => confirm(false)}
-              className="btn cancel"
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.5 } as any}
+          transition={{
+            duration: 0.8,
+            delay: 0,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+          className="box"
+          style={{
+            filter: options.hideShadow
+              ? "none"
+              : "drop-shadow(0 25px 25px rgb(0 0 0 / 0.15))",
+          }}
+        >
+          <div className="boxContainer">
+            <div
+              className="icon"
               style={{
-                backgroundColor: options.cancelColor
-                  ? options.cancelColor
-                  : "rgb(229 231 235)",
-                color: options.cancelTextColor
-                  ? options.cancelTextColor
-                  : "black",
+                backgroundColor: options.iconColor
+                  ? options.iconColor
+                  : iconColor,
+              }}
+            >
+              {icon}
+            </div>
+            <div className="title">{title}</div>
+            <div className="description">
+              {options.description ? options.description : ""}
+            </div>
+            <button
+              onClick={() => confirm(true)}
+              className="btn action"
+              style={{
+                backgroundColor: options.confirmColor
+                  ? options.confirmColor
+                  : iconColor,
+                color: options.confirmTextColor
+                  ? options.confirmTextColor
+                  : "white",
               }}
               onMouseOver={handleMouseOver}
-              onMouseOut={handleCancelOut}
-              ref={cancelRef}
+              onMouseOut={handleConfirmOut}
+              ref={confirmRef}
               onKeyDown={handleKey}
             >
-              {options.cancelLabel ? options.cancelLabel : "Cancel"}
+              {options.confirmLabel ? options.confirmLabel : "Confirm"}
             </button>
-          )}
-        </div>
-      </div>
+            {!options.hideCancel && (
+              <button
+                onClick={() => confirm(false)}
+                className="btn cancel"
+                style={{
+                  backgroundColor: options.cancelColor
+                    ? options.cancelColor
+                    : "rgb(229 231 235)",
+                  color: options.cancelTextColor
+                    ? options.cancelTextColor
+                    : "black",
+                }}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleCancelOut}
+                ref={cancelRef}
+                onKeyDown={handleKey}
+              >
+                {options.cancelLabel ? options.cancelLabel : "Cancel"}
+              </button>
+            )}
+          </div>
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 }
