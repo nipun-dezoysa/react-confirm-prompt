@@ -19,14 +19,18 @@ export function showConfirm(title: string, options: options = {}) {
   return new Promise((resolve, reject) => {
     if (root) {
       root.appendChild(div);
-      createRoot(div).render(
+      const container = createRoot(div);
+      container.render(
         <ConfirmBox
-          resolve={resolve}
-          container={div.id}
+          confirm={(answer: boolean) => {
+            container.unmount();
+            root.removeChild(div);
+            resolve(answer);
+          }}
           title={title}
           options={options}
         />
-      ); 
+      );
     } else {
       reject("root not found");
     }

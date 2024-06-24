@@ -64,6 +64,9 @@
 
 @media only screen and (max-width: 600px) {
   .box {
-    width: 70%;
+    width: 90%;
+  }
+  .boxContainer {
+    width: auto;
   }
 }
