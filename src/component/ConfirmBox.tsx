@@ -6,12 +6,11 @@ import { options } from "./varTypes";
 import { motion,AnimatePresence } from "framer-motion";
 
 function ConfirmBox(props: {
-  resolve: (value: boolean) => void;
-  container: string;
+  confirm: (value: boolean) => void;
   title: string;
   options: options;
 }) {
-  const { resolve, container, title, options } = props;
+  const { confirm, title, options } = props;
 
   const getInitialColor = (type: string) => {
     if (options.color) {
@@ -54,14 +53,6 @@ function ConfirmBox(props: {
   const [icon, setIcon] = useState(
     getInitialIcon(options.type ? options.type : "")
   );
-
-  function confirm(answer: boolean) {
-    const div = document.getElementById(container);
-    if (div) {
-      div.remove();
-    }
-    resolve(answer);
-  }
 
   const handleMouseOver = (e: any) => {
     e.target.style.backgroundColor = options.hoverColor
