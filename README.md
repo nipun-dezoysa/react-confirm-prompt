@@ -52,7 +52,8 @@ function handleShowConfirm() {
 | option   | description | type(s) |
 | ------------- | ------------- | ------------- |
 | description | description for conirmation | string |
-| type | pre-defined types of confirmation box  | string ("info" , "warning" , "success" , "question") |
+| type | pre-defined types of confirmation box. 'info' is the defualt value  | string ("info", "warning", "success", "question") |
+| animation | confirm box animations. 'scale' is the defualt value  | string ("none", "scale", "fade",  "blur", "slide-up", "slide-down", "slide-right", "slide-left") |
 | confirmLabel | custom text that should display in confirm button | string |
 | confirmColor | confirm button color | string (hex or rgb color codes)|
 | confirmTextColor | confirm button text color | string (hex or rgb color codes)|
