@@ -1,5 +1,5 @@
 # react-confirm-prompt
- [![Static Badge](https://img.shields.io/badge/npm-v1.1.0-blue)](https://www.npmjs.com/package/react-confirm-prompt)  <br>
+ [![Static Badge](https://img.shields.io/badge/npm-v1.1.1-blue)](https://www.npmjs.com/package/react-confirm-prompt)  <br>
  ReactConfirmBox is a versatile and user-friendly React component designed to create confirm dialogs with ease. It is fully responsive, highly customizable, and simple to integrate into your React applications. Whether you need to confirm user actions, prompt for decisions, or display alerts, ReactConfirmBox provides a seamless solution to enhance user interactions. <br>
 [Demo project](https://react-confirm-prompt.netlify.app/)
  
