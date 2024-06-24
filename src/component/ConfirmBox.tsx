@@ -4,6 +4,7 @@ import { TiInfoOutline, TiWarningOutline } from "react-icons/ti";
 import { GrStatusGood, GrCircleQuestion } from "react-icons/gr";
 import { options } from "./varTypes";
 import { motion,AnimatePresence } from "framer-motion";
+import { animation } from "./helper";
 
 function ConfirmBox(props: {
   confirm: (value: boolean) => void;
@@ -11,7 +12,7 @@ function ConfirmBox(props: {
   options: options;
 }) {
   const { confirm, title, options } = props;
-
+  const anime = animation(options.animation ? options.animation : "scale");
   const getInitialColor = (type: string) => {
     if (options.color) {
       return options.color;
@@ -93,27 +94,20 @@ function ConfirmBox(props: {
     else if(e.keyCode === 40) cancelRef.current?.focus();
   }
 
-  const slideInOut = {
-    hidden: { scale: 0 },
-    visible: { scale: 1 },
-    exit: { scale: 0 },
-  };
-
   const [clicked, setClicked] = useState(true);
 
-  function c(e:boolean){
+  function result(e:boolean){
     setClicked(false);
     setTimeout(() => {
       confirm(e);
-    }, 100);
-    
+    }, anime.time);
   }
 
   return (
     <>
       <div
         onClick={() => {
-          if (!options.disableBlur) confirm(false);
+          if (!options.disableBlur) result(false);
         }}
         className="backGround"
         style={{
@@ -124,10 +118,9 @@ function ConfirmBox(props: {
       />
       <AnimatePresence>
         <motion.div
-          variants={slideInOut}
+          variants={anime}
           initial="hidden"
           animate={clicked ? "visible" : "hidden"}
-          exit="exit"
           className="box"
           style={{
             filter: options.hideShadow
@@ -151,7 +144,7 @@ function ConfirmBox(props: {
               {options.description ? options.description : ""}
             </div>
             <button
-              onClick={() => c(true)}
+              onClick={() => result(true)}
               className="btn action"
               style={{
                 backgroundColor: options.confirmColor
@@ -170,7 +163,7 @@ function ConfirmBox(props: {
             </button>
             {!options.hideCancel && (
               <button
-                onClick={() => c(false)}
+                onClick={() => result(false)}
                 className="btn cancel"
                 style={{
                   backgroundColor: options.cancelColor

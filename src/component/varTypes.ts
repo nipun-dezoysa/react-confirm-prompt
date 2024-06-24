@@ -16,4 +16,5 @@ export type options = {
   iconColor?: string;
   hideBackground?: boolean;
   hideShadow?: boolean;
+  animation?: "scale" | "fade" | "none" | "blur" | "slide-up" | "slide-down" | "slide-right" | "slide-left";
 };
